@@ -28,6 +28,8 @@ export const categories = [
 
 export const categoryNames = categories.map((category) => category.name)
 
+const imagePath = (fileName) => `${import.meta.env.BASE_URL}images/${fileName}`
+
 export const availableColors = [
   'فضي مطفي',
   'فضي لامع',
@@ -61,13 +63,13 @@ const sizeOptions = {
 }
 
 const colorImages = {
-  'فضي مطفي': '/images/steel-silver-matte.svg',
-  'فضي لامع': '/images/steel-silver-glossy.svg',
-  'ذهبي مطفي': '/images/steel-gold-matte.svg',
-  'ذهبي لامع': '/images/steel-gold-glossy.svg',
-  'اسود مطفي': '/images/steel-black-matte.svg',
-  'اسود لامع': '/images/steel-black-glossy.svg',
-  خشبي: '/images/steel-wood.svg',
+  'فضي مطفي': imagePath('steel-silver-matte.svg'),
+  'فضي لامع': imagePath('steel-silver-glossy.svg'),
+  'ذهبي مطفي': imagePath('steel-gold-matte.svg'),
+  'ذهبي لامع': imagePath('steel-gold-glossy.svg'),
+  'اسود مطفي': imagePath('steel-black-matte.svg'),
+  'اسود لامع': imagePath('steel-black-glossy.svg'),
+  خشبي: imagePath('steel-wood.svg'),
 }
 
 export const products = [
@@ -77,7 +79,7 @@ export const products = [
     category: 'لوحات عنوانك الوطني',
     description:
       'لوحة معدنية أنيقة لعرض العنوان الوطني على واجهة المنزل أو المدخل بلمسة مرتبة وفاخرة.',
-    image: '/images/product-address.svg',
+    image: imagePath('product-address.svg'),
     colorImages: { ...colorImages },
     mockupType: 'address',
     requiredFields: [
@@ -97,7 +99,7 @@ export const products = [
     category: 'لوحات أرقام المنازل',
     description:
       'رقم منزل بارز على ستيل فاخر، مناسب للأبواب والمداخل الخارجية مع وضوح قوي من بعيد.',
-    image: '/images/product-house-number.svg',
+    image: imagePath('product-house-number.svg'),
     colorImages: { ...colorImages },
     mockupType: 'house',
     requiredFields: [
@@ -118,7 +120,7 @@ export const products = [
     category: 'لوحات الاسم مع العنوان الوطني',
     description:
       'تصميم يجمع الاسم مع بيانات العنوان الوطني بشكل متوازن لمدخل مرتب وشخصي.',
-    image: '/images/product-name-address.svg',
+    image: imagePath('product-name-address.svg'),
     colorImages: { ...colorImages },
     mockupType: 'nameAddress',
     requiredFields: [
@@ -144,7 +146,7 @@ export const products = [
     category: 'لوحات خاصة بالشركات',
     description:
       'لوحة مخصصة للشركات والمتاجر، مع مساحة لإرسال تفاصيل الهوية والشعار في الطلب.',
-    image: '/images/product-company.svg',
+    image: imagePath('product-company.svg'),
     colorImages: { ...colorImages },
     mockupType: 'company',
     requiredFields: [
@@ -171,7 +173,7 @@ export const products = [
     category: 'لوحات فنية',
     description:
       'قطعة ديكور معدنية بتصميم فني نظيف للمداخل أو المجالس أو المساحات التجارية الراقية.',
-    image: '/images/product-art.svg',
+    image: imagePath('product-art.svg'),
     colorImages: { ...colorImages },
     mockupType: 'art',
     requiredFields: [
@@ -191,7 +193,7 @@ export const products = [
     category: 'لوحات عنوانك الوطني',
     description:
       'تصميم واضح للعناوين الوطنية يناسب الواجهات الحديثة ويظهر البيانات بشكل مرتب وسهل القراءة.',
-    image: '/images/product-address.svg',
+    image: imagePath('product-address.svg'),
     colorImages: { ...colorImages },
     mockupType: 'address',
     requiredFields: [
@@ -211,7 +213,7 @@ export const products = [
     category: 'لوحات أرقام المنازل',
     description:
       'لوحة رقم منزل بتصميم مربع أنيق، مناسبة للأبواب والمداخل الصغيرة مع إمكانية تخصيص اللون والمقاس.',
-    image: '/images/product-house-number.svg',
+    image: imagePath('product-house-number.svg'),
     colorImages: { ...colorImages },
     mockupType: 'house',
     requiredFields: [
@@ -232,7 +234,7 @@ export const products = [
     category: 'لوحات الاسم مع العنوان الوطني',
     description:
       'تصميم عائلي يجمع الاسم والعنوان الوطني في لوحة واحدة بترتيب فاخر ومناسب لمدخل المنزل.',
-    image: '/images/product-name-address.svg',
+    image: imagePath('product-name-address.svg'),
     colorImages: { ...colorImages },
     mockupType: 'nameAddress',
     requiredFields: [
@@ -258,7 +260,7 @@ export const products = [
     category: 'لوحات خاصة بالشركات',
     description:
       'لوحة مخصصة للمتاجر والمكاتب، قابلة للتخصيص باسم النشاط وملاحظات الهوية البصرية.',
-    image: '/images/product-company.svg',
+    image: imagePath('product-company.svg'),
     colorImages: { ...colorImages },
     mockupType: 'company',
     requiredFields: [
@@ -285,7 +287,7 @@ export const products = [
     category: 'لوحات فنية',
     description:
       'تصميم ديكوري معدني للمداخل أو المجالس، يمكن تخصيص النص أو الشكل حسب فكرة العميل.',
-    image: '/images/product-art.svg',
+    image: imagePath('product-art.svg'),
     colorImages: { ...colorImages },
     mockupType: 'art',
     requiredFields: [
