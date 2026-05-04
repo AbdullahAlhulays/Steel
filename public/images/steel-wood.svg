@@ -1,0 +1,15 @@
+<svg width="640" height="480" viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="480" fill="#000"/>
+  <rect x="104" y="132" width="432" height="216" rx="28" fill="url(#wood)" stroke="#A66A36" stroke-width="3"/>
+  <path d="M142 184C230 142 320 212 498 166" stroke="#6E3F1F" stroke-width="10" stroke-linecap="round" opacity=".5"/>
+  <path d="M142 310C242 262 342 346 498 286" stroke="#5F361D" stroke-width="9" stroke-linecap="round" opacity=".45"/>
+  <path d="M168 218H472" stroke="#111" stroke-width="20" stroke-linecap="round"/>
+  <path d="M216 272H424" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="wood" x1="104" y1="132" x2="536" y2="348" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D0A16D"/>
+      <stop offset=".42" stop-color="#8A5229"/>
+      <stop offset="1" stop-color="#C1844A"/>
+    </linearGradient>
+  </defs>
+</svg>
