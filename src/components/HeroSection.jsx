@@ -17,7 +17,7 @@ function HeroSection() {
           <p className="mb-3 inline-flex max-w-full rounded-full border border-[#D8D3CC] bg-white px-3 py-2 text-[11px] font-semibold leading-5 text-[#A88254] shadow-sm sm:mb-5 sm:px-4 sm:text-sm">
             متجر سعودي للوحات الستيل المخصصة
           </p>
-          <h1 className="text-[1.9rem] font-bold leading-tight text-[#2F2F2F] sm:text-4xl md:text-6xl">
+          <h1 className="text-[1.9rem] font-bold leading-tight text-[#2F2F2F] sm:text-4xl md:text-5xl lg:text-6xl">
             لوحات ستيل فاخرة بتصميم يناسبك
           </h1>
           <p className="mt-4 max-w-xl text-sm leading-7 text-[#6B6B6B] sm:mt-6 sm:text-lg sm:leading-9">
@@ -25,26 +25,26 @@ function HeroSection() {
             للواتساب من صفحة واحدة واضحة.
           </p>
 
-          <div className="mt-6 flex flex-col gap-3 sm:mt-9 sm:flex-row">
+          <div className="mt-6 grid grid-cols-2 gap-2 sm:mt-9 sm:flex sm:gap-3">
             <a
               href="#categories"
-              className="inline-flex min-h-11 items-center justify-center rounded-xl bg-[#C7A46A] px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-[#A88254] sm:min-h-12 sm:rounded-2xl sm:px-6 sm:py-4"
+              className="inline-flex min-h-11 items-center justify-center rounded-xl bg-[#C7A46A] px-3 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-[#A88254] sm:min-h-12 sm:rounded-2xl sm:px-6 sm:py-4"
             >
               اختر التصنيف
             </a>
             <a
               href="#steps"
-              className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[#D8D3CC] bg-white px-5 py-3 text-sm font-bold text-[#2F2F2F] shadow-sm transition hover:border-[#AEB4BC] hover:bg-[#F3EEE7] sm:min-h-12 sm:rounded-2xl sm:px-6 sm:py-4"
+              className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[#D8D3CC] bg-white px-3 py-3 text-sm font-bold text-[#2F2F2F] shadow-sm transition hover:border-[#AEB4BC] hover:bg-[#F3EEE7] sm:min-h-12 sm:rounded-2xl sm:px-6 sm:py-4"
             >
               طريقة الطلب
             </a>
           </div>
 
-          <div className="mt-5 grid max-w-xl gap-2 min-[420px]:grid-cols-3 sm:mt-8 sm:gap-3">
+          <div className="mt-5 grid max-w-xl grid-cols-3 gap-2 sm:mt-8 sm:gap-3">
             {['اختر التصنيف', 'اختر المنتج', 'أرسل واتساب'].map((item) => (
               <div
                 key={item}
-                className="rounded-xl border border-[#D8D3CC] bg-white px-3 py-2.5 text-center text-xs font-semibold leading-5 text-[#6B6B6B] shadow-sm sm:rounded-2xl sm:px-4 sm:py-3 sm:text-right sm:text-sm"
+                className="rounded-xl border border-[#D8D3CC] bg-white px-2 py-2.5 text-center text-[11px] font-semibold leading-5 text-[#6B6B6B] shadow-sm sm:rounded-2xl sm:px-4 sm:py-3 sm:text-right sm:text-sm"
               >
                 {item}
               </div>
