@@ -77,10 +77,10 @@ export const products = [
     category: 'لوحات عنوانك الوطني',
     description:
       'لوحة معدنية أنيقة لعرض العنوان الوطني على واجهة المنزل أو المدخل بلمسة مرتبة وفاخرة.',
-    defaultImage: '/images/product-address.svg',
+    image: '/images/product-address.svg',
     colorImages: { ...colorImages },
     mockupType: 'address',
-    fields: [
+    requiredFields: [
       {
         name: 'nationalAddress',
         label: 'العنوان الوطني',
@@ -97,10 +97,10 @@ export const products = [
     category: 'لوحات أرقام المنازل',
     description:
       'رقم منزل بارز على ستيل فاخر، مناسب للأبواب والمداخل الخارجية مع وضوح قوي من بعيد.',
-    defaultImage: '/images/product-house-number.svg',
+    image: '/images/product-house-number.svg',
     colorImages: { ...colorImages },
     mockupType: 'house',
-    fields: [
+    requiredFields: [
       {
         name: 'houseNumber',
         label: 'رقم المنزل',
@@ -118,10 +118,10 @@ export const products = [
     category: 'لوحات الاسم مع العنوان الوطني',
     description:
       'تصميم يجمع الاسم مع بيانات العنوان الوطني بشكل متوازن لمدخل مرتب وشخصي.',
-    defaultImage: '/images/product-name-address.svg',
+    image: '/images/product-name-address.svg',
     colorImages: { ...colorImages },
     mockupType: 'nameAddress',
-    fields: [
+    requiredFields: [
       {
         name: 'customerName',
         label: 'الاسم',
@@ -144,10 +144,10 @@ export const products = [
     category: 'لوحات خاصة بالشركات',
     description:
       'لوحة مخصصة للشركات والمتاجر، مع مساحة لإرسال تفاصيل الهوية والشعار في الطلب.',
-    defaultImage: '/images/product-company.svg',
+    image: '/images/product-company.svg',
     colorImages: { ...colorImages },
     mockupType: 'company',
-    fields: [
+    requiredFields: [
       {
         name: 'companyName',
         label: 'اسم الشركة أو المتجر',
@@ -171,15 +171,129 @@ export const products = [
     category: 'لوحات فنية',
     description:
       'قطعة ديكور معدنية بتصميم فني نظيف للمداخل أو المجالس أو المساحات التجارية الراقية.',
-    defaultImage: '/images/product-art.svg',
+    image: '/images/product-art.svg',
     colorImages: { ...colorImages },
     mockupType: 'art',
-    fields: [
+    requiredFields: [
       {
         name: 'artDescription',
         label: 'وصف التصميم الفني',
         placeholder: 'مثال: نص قصير أو شكل هندسي بسيط',
         required: false,
+      },
+    ],
+    availableColors,
+    sizeOptions,
+  },
+  {
+    id: 'SL-006',
+    name: 'لوحة عنوان وطني بخط عريض',
+    category: 'لوحات عنوانك الوطني',
+    description:
+      'تصميم واضح للعناوين الوطنية يناسب الواجهات الحديثة ويظهر البيانات بشكل مرتب وسهل القراءة.',
+    image: '/images/product-address.svg',
+    colorImages: { ...colorImages },
+    mockupType: 'address',
+    requiredFields: [
+      {
+        name: 'nationalAddress',
+        label: 'العنوان الوطني',
+        placeholder: 'مثال: 1234 طريق الملك فهد - الرياض',
+        required: true,
+      },
+    ],
+    availableColors,
+    sizeOptions,
+  },
+  {
+    id: 'SL-007',
+    name: 'لوحة رقم منزل مربعة',
+    category: 'لوحات أرقام المنازل',
+    description:
+      'لوحة رقم منزل بتصميم مربع أنيق، مناسبة للأبواب والمداخل الصغيرة مع إمكانية تخصيص اللون والمقاس.',
+    image: '/images/product-house-number.svg',
+    colorImages: { ...colorImages },
+    mockupType: 'house',
+    requiredFields: [
+      {
+        name: 'houseNumber',
+        label: 'رقم المنزل',
+        placeholder: 'مثال: 18',
+        required: true,
+        inputMode: 'numeric',
+      },
+    ],
+    availableColors,
+    sizeOptions,
+  },
+  {
+    id: 'SL-008',
+    name: 'لوحة اسم عائلية مع العنوان',
+    category: 'لوحات الاسم مع العنوان الوطني',
+    description:
+      'تصميم عائلي يجمع الاسم والعنوان الوطني في لوحة واحدة بترتيب فاخر ومناسب لمدخل المنزل.',
+    image: '/images/product-name-address.svg',
+    colorImages: { ...colorImages },
+    mockupType: 'nameAddress',
+    requiredFields: [
+      {
+        name: 'customerName',
+        label: 'الاسم',
+        placeholder: 'مثال: عائلة السالم',
+        required: true,
+      },
+      {
+        name: 'unitNumber',
+        label: 'رقم الفيلا أو البيت أو الشقة',
+        placeholder: 'مثال: فيلا 7',
+        required: true,
+      },
+    ],
+    availableColors,
+    sizeOptions,
+  },
+  {
+    id: 'SL-009',
+    name: 'لوحة واجهة متجر',
+    category: 'لوحات خاصة بالشركات',
+    description:
+      'لوحة مخصصة للمتاجر والمكاتب، قابلة للتخصيص باسم النشاط وملاحظات الهوية البصرية.',
+    image: '/images/product-company.svg',
+    colorImages: { ...colorImages },
+    mockupType: 'company',
+    requiredFields: [
+      {
+        name: 'companyName',
+        label: 'اسم الشركة أو المتجر',
+        placeholder: 'مثال: متجر روز',
+        required: true,
+      },
+      {
+        name: 'designBrief',
+        label: 'ملاحظات التصميم',
+        placeholder: 'مثال: أريدها للواجهة مع شعار بسيط',
+        required: false,
+      },
+    ],
+    whatsappNote: 'يمكنك إرفاق الشعار أو الصورة بعد فتح المحادثة في الواتساب.',
+    availableColors,
+    sizeOptions,
+  },
+  {
+    id: 'SL-010',
+    name: 'لوحة فنية زخرفية',
+    category: 'لوحات فنية',
+    description:
+      'تصميم ديكوري معدني للمداخل أو المجالس، يمكن تخصيص النص أو الشكل حسب فكرة العميل.',
+    image: '/images/product-art.svg',
+    colorImages: { ...colorImages },
+    mockupType: 'art',
+    requiredFields: [
+      {
+        name: 'artDescription',
+        label: 'وصف التصميم الفني',
+        placeholder: 'مثال: عبارة قصيرة أو شكل هندسي بسيط',
+        required: true,
       },
     ],
     availableColors,

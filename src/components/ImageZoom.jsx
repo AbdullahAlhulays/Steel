@@ -32,7 +32,7 @@ function ImageZoom({ product, color, imageSrc }) {
           product={product}
           color={color}
           imageSrc={imageSrc}
-          className="min-h-[250px] border-0 sm:min-h-[430px]"
+          className="min-h-[235px] border-0 sm:min-h-[430px]"
         />
       </div>
       <span className="pointer-events-none absolute bottom-5 right-5 hidden rounded-full border border-[#D6D1CA] bg-white/90 px-4 py-2 text-xs font-semibold text-[#6B6B6B] opacity-0 shadow-sm transition group-hover:opacity-100 sm:block">

@@ -1,9 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import { products } from './data/products'
-import CategoryPage from './pages/CategoryPage'
 import HomePage from './pages/HomePage'
 import ProductDetails from './pages/ProductDetails'
 
@@ -51,12 +50,7 @@ function App() {
           />
           <Route
             path="/category/:categorySlug"
-            element={
-              <CategoryPage
-                searchTerm={searchTerm}
-                onClearSearch={clearSearch}
-              />
-            }
+            element={<CategoryRedirect />}
           />
           <Route path="/product/:productId" element={<ProductDetails />} />
           <Route
@@ -77,6 +71,12 @@ function App() {
       <Footer />
     </div>
   )
+}
+
+function CategoryRedirect() {
+  const { categorySlug } = useParams()
+
+  return <Navigate to={`/?category=${categorySlug}`} replace />
 }
 
 function ScrollToTop() {

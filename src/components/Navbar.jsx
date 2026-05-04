@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { categories } from '../data/products'
 
 function Navbar({
@@ -10,12 +10,6 @@ function Navbar({
   const [isOpen, setIsOpen] = useState(false)
   const location = useLocation()
   const navigate = useNavigate()
-
-  function scrollToCategories() {
-    window.setTimeout(() => {
-      document.getElementById('categories')?.scrollIntoView({ block: 'start' })
-    }, 0)
-  }
 
   function handleSearchChange(event) {
     onSearchChange(event.target.value)
@@ -29,7 +23,6 @@ function Navbar({
     onClearSearch()
     setIsOpen(false)
     navigate('/')
-    scrollToCategories()
   }
 
   function handleBrandClick() {
@@ -37,10 +30,16 @@ function Navbar({
     setIsOpen(false)
   }
 
-  function handleCategoryLinkClick() {
+  function handleCategoryLinkClick(category) {
     onClearSearch()
     setIsOpen(false)
+    navigate(`/?category=${category.slug}`)
   }
+
+  const selectedCategorySlug =
+    location.pathname === '/'
+      ? new URLSearchParams(location.search).get('category')
+      : null
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#D8D3CC] bg-white/95 shadow-[0_8px_30px_rgba(47,47,47,0.04)] backdrop-blur-xl">
@@ -121,20 +120,18 @@ function Navbar({
           <div className="flex items-center gap-2 overflow-x-auto">
             {categories.map((category) => {
               return (
-                <NavLink
+                <button
                   key={category.slug}
-                  to={`/category/${category.slug}`}
-                  onClick={handleCategoryLinkClick}
-                  className={({ isActive }) =>
-                    `shrink-0 rounded-full border px-4 py-2 text-xs font-semibold transition ${
-                      isActive
+                  type="button"
+                  onClick={() => handleCategoryLinkClick(category)}
+                  className={`shrink-0 rounded-full border px-4 py-2 text-xs font-semibold transition ${
+                      selectedCategorySlug === category.slug
                       ? 'border-[#C7A46A] bg-[#C7A46A] text-white'
                       : 'border-[#D8D3CC] bg-white text-[#6B6B6B] hover:border-[#AEB4BC] hover:text-[#2F2F2F]'
-                    }`
-                  }
+                    }`}
                 >
                   {category.name}
-                </NavLink>
+                </button>
               )
             })}
           </div>
@@ -151,20 +148,18 @@ function Navbar({
             </button>
             {categories.map((category) => {
               return (
-                <NavLink
+                <button
                   key={category.slug}
-                  to={`/category/${category.slug}`}
-                  onClick={handleCategoryLinkClick}
-                  className={({ isActive }) =>
-                    `min-h-11 rounded-xl border px-4 py-3 text-right text-sm font-semibold transition sm:min-h-12 sm:rounded-2xl ${
-                      isActive
+                  type="button"
+                  onClick={() => handleCategoryLinkClick(category)}
+                  className={`min-h-11 rounded-xl border px-4 py-3 text-right text-sm font-semibold transition sm:min-h-12 sm:rounded-2xl ${
+                      selectedCategorySlug === category.slug
                       ? 'border-[#C7A46A] bg-[#C7A46A] text-white'
                       : 'border-[#D8D3CC] bg-white text-[#6B6B6B]'
-                    }`
-                  }
+                    }`}
                 >
                   {category.name}
-                </NavLink>
+                </button>
               )
             })}
           </div>

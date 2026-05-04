@@ -4,21 +4,26 @@ import SectionTitle from './SectionTitle'
 function ProductGrid({
   products,
   searchTerm,
+  categories = [],
+  selectedCategorySlug = 'all',
+  onCategorySelect,
   onClearFilters,
-  title = 'اختر اللوحة وابدأ التخصيص',
+  title = 'اختر التصميم وخصص طلبك',
   eyebrow = 'المنتجات',
   description = 'كل منتج يفتح صفحة واحدة لاختيار المقاس واللون وإرسال الطلب عبر الواتساب.',
-  emptyTitle = 'لا توجد منتجات مطابقة للبحث',
-  emptyDescription = 'جرّب البحث باسم المنتج أو التصنيف أو رقم المنتج.',
+  emptyTitle = 'لا توجد منتجات مطابقة',
+  emptyDescription = 'جرّب البحث باسم المنتج أو رقم المنتج، أو اختر تصنيفا آخر.',
 }) {
-  const hasFilters = Boolean(searchTerm)
+  const hasSearch = Boolean(searchTerm)
+  const hasCategoryFilter = selectedCategorySlug !== 'all'
+  const hasFilters = hasSearch || hasCategoryFilter
 
   return (
     <section id="products" className="mx-auto max-w-7xl px-3 py-10 sm:px-6 sm:py-16 lg:px-8">
-      <div className="mb-7 flex flex-col gap-5 sm:mb-10 lg:flex-row lg:items-end lg:justify-between">
+      <div className="mb-5 flex flex-col gap-4 sm:mb-8 lg:flex-row lg:items-end lg:justify-between">
         <SectionTitle
-          eyebrow={hasFilters ? 'نتائج البحث' : eyebrow}
-          title={hasFilters ? 'المنتجات المطابقة' : title}
+          eyebrow={hasSearch ? 'نتائج البحث' : eyebrow}
+          title={hasSearch ? 'المنتجات المطابقة' : title}
           description={description}
         />
 
@@ -32,6 +37,26 @@ function ProductGrid({
           </button>
         )}
       </div>
+
+      {categories.length > 0 && (
+        <div className="mb-5 -mx-3 overflow-x-auto px-3 sm:mx-0 sm:mb-7 sm:px-0">
+          <div className="flex w-max min-w-full gap-2">
+            <FilterChip
+              isActive={selectedCategorySlug === 'all'}
+              label="كل المنتجات"
+              onClick={() => onCategorySelect?.('all')}
+            />
+            {categories.map((category) => (
+              <FilterChip
+                key={category.slug}
+                isActive={selectedCategorySlug === category.slug}
+                label={category.name}
+                onClick={() => onCategorySelect?.(category.slug)}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       {products.length > 0 ? (
         <div className="grid grid-cols-2 gap-2 sm:gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -50,6 +75,22 @@ function ProductGrid({
         </div>
       )}
     </section>
+  )
+}
+
+function FilterChip({ isActive, label, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`shrink-0 rounded-full border px-4 py-2.5 text-xs font-bold transition sm:px-5 sm:text-sm ${
+        isActive
+          ? 'border-[#C7A46A] bg-[#C7A46A] text-white shadow-sm'
+          : 'border-[#D8D3CC] bg-white text-[#5F5F5F] hover:border-[#AEB4BC] hover:text-[#2F2F2F]'
+      }`}
+    >
+      {label}
+    </button>
   )
 }
 

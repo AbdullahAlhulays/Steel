@@ -1,7 +1,7 @@
 import { products } from '../data/products'
 import ProductMockup from './ProductMockup'
 
-function HeroSection() {
+function HeroSection({ onBrowseProducts, onShowSteps }) {
   return (
     <section className="relative overflow-hidden border-b border-[#D8D3CC] bg-[#FAF8F5]">
       <div className="absolute inset-x-0 top-0 h-24 bg-[#F3EEE7]/70 sm:h-32" />
@@ -21,34 +21,25 @@ function HeroSection() {
             لوحات ستيل فاخرة بتصميم يناسبك
           </h1>
           <p className="mt-4 max-w-xl text-sm leading-7 text-[#6B6B6B] sm:mt-6 sm:text-lg sm:leading-9">
-            اختر التصنيف المناسب، افتح المنتج، خصص المقاس واللون، ثم أرسل الطلب
-            للواتساب من صفحة واحدة واضحة.
+            تصفح التصاميم المتاحة، اختر المنتج المناسب، ثم خصص اللون والمقاس
+            والتفاصيل قبل إرسال الطلب عبر الواتساب.
           </p>
 
           <div className="mt-6 grid grid-cols-2 gap-2 sm:mt-9 sm:flex sm:gap-3">
-            <a
-              href="#categories"
+            <button
+              type="button"
+              onClick={onBrowseProducts}
               className="inline-flex min-h-11 items-center justify-center rounded-xl bg-[#C7A46A] px-3 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-[#A88254] sm:min-h-12 sm:rounded-2xl sm:px-6 sm:py-4"
             >
-              اختر التصنيف
-            </a>
-            <a
-              href="#steps"
+              تصفح المنتجات
+            </button>
+            <button
+              type="button"
+              onClick={onShowSteps}
               className="inline-flex min-h-11 items-center justify-center rounded-xl border border-[#D8D3CC] bg-white px-3 py-3 text-sm font-bold text-[#2F2F2F] shadow-sm transition hover:border-[#AEB4BC] hover:bg-[#F3EEE7] sm:min-h-12 sm:rounded-2xl sm:px-6 sm:py-4"
             >
               طريقة الطلب
-            </a>
-          </div>
-
-          <div className="mt-5 grid max-w-xl grid-cols-3 gap-2 sm:mt-8 sm:gap-3">
-            {['اختر التصنيف', 'اختر المنتج', 'أرسل واتساب'].map((item) => (
-              <div
-                key={item}
-                className="rounded-xl border border-[#D8D3CC] bg-white px-2 py-2.5 text-center text-[11px] font-semibold leading-5 text-[#6B6B6B] shadow-sm sm:rounded-2xl sm:px-4 sm:py-3 sm:text-right sm:text-sm"
-              >
-                {item}
-              </div>
-            ))}
+            </button>
           </div>
         </div>
       </div>
