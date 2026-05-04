@@ -38,17 +38,17 @@ function CategoryPage({ searchTerm, onClearSearch }) {
   return (
     <>
       <section className="border-b border-[#D8D3CC] bg-[#F3EEE7]">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
           <Link
             to="/"
-            className="mb-6 inline-flex rounded-2xl border border-[#D6D1CA] bg-white px-4 py-2 text-sm font-semibold text-[#6B6B6B] shadow-sm transition hover:border-[#AEB4BC] hover:text-[#2F2F2F]"
+            className="mb-6 inline-flex min-h-11 items-center rounded-2xl border border-[#D6D1CA] bg-white px-4 py-2 text-sm font-semibold text-[#6B6B6B] shadow-sm transition hover:border-[#AEB4BC] hover:text-[#2F2F2F]"
           >
             العودة للتصنيفات
           </Link>
           <p className="mb-3 text-sm font-semibold text-[#A88254]">
             {categoryProducts.length} منتج في هذا القسم
           </p>
-          <h1 className="text-3xl font-bold leading-tight text-[#2F2F2F] md:text-5xl">
+          <h1 className="text-3xl font-bold leading-tight text-[#2F2F2F] sm:text-4xl md:text-5xl">
             {category.name}
           </h1>
           <p className="mt-4 max-w-2xl leading-8 text-[#6B6B6B]">

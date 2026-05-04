@@ -5,7 +5,7 @@ import SectionTitle from './SectionTitle'
 
 function CategoryList() {
   return (
-    <section id="categories" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <section id="categories" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <SectionTitle
           eyebrow="التصنيفات"
@@ -14,7 +14,7 @@ function CategoryList() {
         />
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {categories.map((category) => {
           const categoryProducts = getProductsByCategory(category.name)
           const previewProduct = categoryProducts[0]
@@ -25,14 +25,14 @@ function CategoryList() {
               to={`/category/${category.slug}`}
               className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[#D8D3CC] bg-white shadow-[0_12px_30px_rgba(47,47,47,0.06)] transition hover:-translate-y-1 hover:border-[#AEB4BC] hover:shadow-[0_18px_45px_rgba(47,47,47,0.1)]"
             >
-              <div className="p-3">
+              <div className="p-2.5 sm:p-3">
                 {previewProduct ? (
                   <ProductVisual
                     product={previewProduct}
                     color="فضي لامع"
                     imageSrc={previewProduct.defaultImage}
                     compact
-                    className="min-h-[180px]"
+                    className="min-h-[170px] sm:min-h-[180px]"
                   />
                 ) : (
                   <div className="grid min-h-[180px] place-items-center rounded-[1.75rem] border border-[#D6D1CA] bg-[#F3EEE7] text-sm font-semibold text-[#6B6B6B]">
@@ -41,7 +41,7 @@ function CategoryList() {
                 )}
               </div>
 
-              <div className="flex flex-1 flex-col p-5 pt-2">
+              <div className="flex flex-1 flex-col p-4 pt-2 sm:p-5 sm:pt-2">
                 <p className="text-xs font-semibold text-[#A88254]">
                   {categoryProducts.length} منتج
                 </p>
@@ -52,7 +52,7 @@ function CategoryList() {
                   {category.description}
                 </p>
 
-                <span className="mt-5 inline-flex items-center justify-center rounded-2xl border border-[#D8D3CC] bg-[#FAF8F5] px-4 py-3 text-sm font-bold text-[#2F2F2F] transition group-hover:border-[#AEB4BC] group-hover:bg-[#F3EEE7]">
+                <span className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl border border-[#D8D3CC] bg-[#FAF8F5] px-4 py-3 text-sm font-bold text-[#2F2F2F] transition group-hover:border-[#AEB4BC] group-hover:bg-[#F3EEE7]">
                   عرض منتجات القسم
                 </span>
               </div>

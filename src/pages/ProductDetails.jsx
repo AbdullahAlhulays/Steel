@@ -97,21 +97,21 @@ function ProductOrderForm({ product }) {
   const backTo = category ? `/category/${category.slug}` : '/'
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
       <Link
         to={backTo}
-        className="mb-8 inline-flex rounded-2xl border border-[#D6D1CA] bg-white px-4 py-2 text-sm font-semibold text-[#6B6B6B] shadow-sm transition hover:border-[#AEB4BC] hover:text-[#2F2F2F]"
+        className="mb-5 inline-flex min-h-11 items-center rounded-2xl border border-[#D6D1CA] bg-white px-4 py-2 text-sm font-semibold text-[#6B6B6B] shadow-sm transition hover:border-[#AEB4BC] hover:text-[#2F2F2F] sm:mb-8"
       >
         العودة للقسم
       </Link>
 
       <div
         dir="rtl"
-        className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start"
+        className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-start"
       >
         <form
           onSubmit={handleSubmit}
-          className="rounded-[2rem] border border-[#D6D1CA] bg-white p-5 shadow-[0_16px_45px_rgba(47,47,47,0.08)] sm:p-7"
+          className="order-2 rounded-[2rem] border border-[#D6D1CA] bg-white p-4 shadow-[0_16px_45px_rgba(47,47,47,0.08)] sm:p-7 lg:order-1"
         >
           <div className="mb-6 flex flex-wrap items-center gap-3">
             <span className="rounded-full border border-[#D6D1CA] bg-[#FAF8F5] px-3 py-1 text-xs font-semibold text-[#A88254]">
@@ -122,10 +122,10 @@ function ProductOrderForm({ product }) {
             </span>
           </div>
 
-          <h1 className="text-3xl font-bold leading-tight text-[#2F2F2F] md:text-4xl">
+          <h1 className="text-2xl font-bold leading-tight text-[#2F2F2F] sm:text-3xl md:text-4xl">
             {product.name}
           </h1>
-          <p className="mt-4 leading-8 text-[#6B6B6B]">
+          <p className="mt-4 text-sm leading-7 text-[#6B6B6B] sm:text-base sm:leading-8">
             {product.description}
           </p>
 
@@ -170,7 +170,7 @@ function ProductOrderForm({ product }) {
           </div>
         </form>
 
-        <div className="space-y-4">
+        <div className="order-1 space-y-4 lg:order-2">
           <ImageZoom
             product={product}
             color={selectedColor}

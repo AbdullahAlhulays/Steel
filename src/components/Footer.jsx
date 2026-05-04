@@ -32,7 +32,7 @@ function Footer() {
               <Link
                 key={category.slug}
                 to={`/category/${category.slug}`}
-                className="w-fit text-sm text-[#6B6B6B] transition hover:text-[#A88254]"
+                className="w-fit py-1 text-sm text-[#6B6B6B] transition hover:text-[#A88254]"
               >
                 {category.name}
               </Link>

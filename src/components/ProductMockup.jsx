@@ -66,7 +66,7 @@ function ProductMockup({
 }) {
   const style = metalStyles[color] || metalStyles['ذهبي لامع']
   const type = product?.mockupType || 'address'
-  const size = compact ? 'min-h-[210px]' : 'min-h-[420px]'
+  const size = compact ? 'min-h-[180px] sm:min-h-[210px]' : 'min-h-[320px] sm:min-h-[420px]'
 
   return (
     <div

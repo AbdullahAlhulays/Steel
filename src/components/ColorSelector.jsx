@@ -13,14 +13,14 @@ function ColorSelector({ colors, selectedColor, onChange }) {
               key={color}
               type="button"
               onClick={() => onChange(color)}
-              className={`rounded-2xl border bg-white p-2.5 text-right transition ${
+              className={`min-h-[76px] rounded-2xl border bg-white p-2.5 text-right transition ${
                 isSelected
                   ? 'border-[#C7A46A] shadow-[0_0_0_3px_rgba(199,164,106,0.18)]'
                   : 'border-[#D6D1CA] hover:border-[#AEB4BC]'
               }`}
             >
               <span
-                className={`mb-2 block h-10 rounded-xl border border-[#D6D1CA] ${colorPreviews[color]}`}
+                className={`mb-2 block h-9 rounded-xl border border-[#D6D1CA] sm:h-10 ${colorPreviews[color]}`}
               />
               <span className="text-xs font-semibold text-[#2F2F2F]">
                 {color}

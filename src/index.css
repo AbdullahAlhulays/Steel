@@ -2,12 +2,14 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 8rem;
 }
 
 body {
   margin: 0;
   background: #FAF8F5;
   color: #2F2F2F;
+  overflow-x: hidden;
   font-family:
     "IBM Plex Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif;
 }
