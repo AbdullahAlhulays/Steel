@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { useEffect, useMemo, useState } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import { products } from './data/products'
@@ -30,6 +30,7 @@ function App() {
 
   return (
     <div dir="rtl" className="min-h-screen bg-[#FAF8F5] text-[#2F2F2F]">
+      <ScrollToTop />
       <Navbar
         searchTerm={searchTerm}
         onSearchChange={setSearchTerm}
@@ -76,6 +77,16 @@ function App() {
       <Footer />
     </div>
   )
+}
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [pathname])
+
+  return null
 }
 
 export default App
