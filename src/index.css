@@ -3,10 +3,12 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 8rem;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
+  min-width: 320px;
   background: #FAF8F5;
   color: #2F2F2F;
   overflow-x: hidden;
@@ -18,8 +20,20 @@ body {
   box-sizing: border-box;
 }
 
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
 button,
 input,
 select {
   font: inherit;
+}
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 6.5rem;
+  }
 }

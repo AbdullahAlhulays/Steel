@@ -44,25 +44,25 @@ function Navbar({
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#D8D3CC] bg-white/95 shadow-[0_8px_30px_rgba(47,47,47,0.04)] backdrop-blur-xl">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex min-h-16 items-center gap-3 sm:min-h-20 sm:gap-4">
+      <nav className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+        <div className="flex min-h-14 items-center gap-2 sm:min-h-20 sm:gap-4">
           <Link
             to="/"
             onClick={handleBrandClick}
-            className="flex shrink-0 items-center gap-3"
+            className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3"
             aria-label="العودة إلى الرئيسية"
           >
-            <span className="relative grid h-10 w-10 place-items-center overflow-hidden rounded-xl border border-[#D8D3CC] bg-[#FAF8F5] shadow-sm sm:h-12 sm:w-12 sm:rounded-2xl">
+            <span className="relative grid h-9 w-9 shrink-0 place-items-center overflow-hidden rounded-xl border border-[#D8D3CC] bg-[#FAF8F5] shadow-sm sm:h-12 sm:w-12 sm:rounded-2xl">
               <span className="absolute inset-x-2 top-3 h-px bg-[#AEB4BC]" />
               <span className="absolute inset-y-2 right-4 w-px bg-[#C7A46A]" />
               <span className="absolute inset-y-2 left-4 w-px bg-[#AEB4BC]" />
               <span className="text-sm font-bold text-[#2F2F2F]">SL</span>
             </span>
-            <span>
-              <span className="block text-lg font-bold leading-tight text-[#2F2F2F] sm:text-xl">
+            <span className="min-w-0">
+              <span className="block truncate text-base font-bold leading-tight text-[#2F2F2F] sm:text-xl">
                 SteelLine
               </span>
-              <span className="block text-[11px] text-[#6B6B6B] sm:text-xs">
+              <span className="block max-w-[13rem] truncate text-[10px] text-[#6B6B6B] max-[380px]:hidden sm:max-w-none sm:text-xs">
                 لوحات ستيل حسب الطلب
               </span>
             </span>
@@ -91,7 +91,7 @@ function Navbar({
           <button
             type="button"
             onClick={() => setIsOpen((current) => !current)}
-            className="mr-auto grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-[#D8D3CC] bg-[#FAF8F5] lg:hidden"
+            className="mr-auto grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-[#D8D3CC] bg-[#FAF8F5] sm:h-11 sm:w-11 lg:hidden"
             aria-label="فتح القائمة"
             aria-expanded={isOpen}
           >
@@ -111,7 +111,7 @@ function Navbar({
               value={searchTerm}
               onChange={handleSearchChange}
               placeholder="ابحث عن منتج"
-              className="min-h-12 w-full rounded-2xl border border-[#D8D3CC] bg-[#FAF8F5] px-4 py-3 pr-12 text-sm text-[#2F2F2F] outline-none placeholder:text-[#938c84] focus:border-[#AEB4BC]"
+              className="min-h-11 w-full rounded-xl border border-[#D8D3CC] bg-[#FAF8F5] px-4 py-3 pr-11 text-sm text-[#2F2F2F] outline-none placeholder:text-[#938c84] focus:border-[#AEB4BC] sm:min-h-12 sm:rounded-2xl sm:pr-12"
             />
             <span className="absolute right-4 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full border border-[#A88254]" />
           </label>
@@ -141,11 +141,11 @@ function Navbar({
         </div>
 
         {isOpen && (
-          <div className="grid gap-2 border-t border-[#D8D3CC] py-4 lg:hidden">
+          <div className="grid gap-2 border-t border-[#D8D3CC] py-3 lg:hidden">
             <button
               type="button"
               onClick={handleCatalogClick}
-              className="min-h-12 rounded-2xl bg-[#C7A46A] px-4 py-3 text-center text-sm font-bold text-white"
+              className="min-h-11 rounded-xl bg-[#C7A46A] px-4 py-3 text-center text-sm font-bold text-white sm:min-h-12 sm:rounded-2xl"
             >
               التصنيفات
             </button>
@@ -156,7 +156,7 @@ function Navbar({
                   to={`/category/${category.slug}`}
                   onClick={handleCategoryLinkClick}
                   className={({ isActive }) =>
-                    `min-h-12 rounded-2xl border px-4 py-3 text-right text-sm font-semibold transition ${
+                    `min-h-11 rounded-xl border px-4 py-3 text-right text-sm font-semibold transition sm:min-h-12 sm:rounded-2xl ${
                       isActive
                       ? 'border-[#C7A46A] bg-[#C7A46A] text-white'
                       : 'border-[#D8D3CC] bg-white text-[#6B6B6B]'

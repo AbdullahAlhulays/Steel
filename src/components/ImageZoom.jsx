@@ -14,7 +14,7 @@ function ImageZoom({ product, color, imageSrc }) {
 
   return (
     <div
-      className="group relative overflow-hidden rounded-[2rem] border border-[#D6D1CA] bg-[#F3EEE7] shadow-[0_18px_45px_rgba(47,47,47,0.08)]"
+      className="group relative overflow-hidden rounded-2xl border border-[#D6D1CA] bg-[#F3EEE7] shadow-[0_18px_45px_rgba(47,47,47,0.08)] sm:rounded-[2rem]"
       onMouseEnter={() => setIsZoomed(true)}
       onMouseLeave={() => {
         setIsZoomed(false)
@@ -32,7 +32,7 @@ function ImageZoom({ product, color, imageSrc }) {
           product={product}
           color={color}
           imageSrc={imageSrc}
-          className="min-h-[300px] border-0 sm:min-h-[430px]"
+          className="min-h-[250px] border-0 sm:min-h-[430px]"
         />
       </div>
       <span className="pointer-events-none absolute bottom-5 right-5 hidden rounded-full border border-[#D6D1CA] bg-white/90 px-4 py-2 text-xs font-semibold text-[#6B6B6B] opacity-0 shadow-sm transition group-hover:opacity-100 sm:block">

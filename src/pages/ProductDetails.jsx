@@ -97,23 +97,23 @@ function ProductOrderForm({ product }) {
   const backTo = category ? `/category/${category.slug}` : '/'
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
+    <section className="mx-auto max-w-7xl px-3 py-4 sm:px-6 sm:py-10 lg:px-8">
       <Link
         to={backTo}
-        className="mb-5 inline-flex min-h-11 items-center rounded-2xl border border-[#D6D1CA] bg-white px-4 py-2 text-sm font-semibold text-[#6B6B6B] shadow-sm transition hover:border-[#AEB4BC] hover:text-[#2F2F2F] sm:mb-8"
+        className="mb-4 inline-flex min-h-10 items-center rounded-xl border border-[#D6D1CA] bg-white px-4 py-2 text-sm font-semibold text-[#6B6B6B] shadow-sm transition hover:border-[#AEB4BC] hover:text-[#2F2F2F] sm:mb-8 sm:min-h-11 sm:rounded-2xl"
       >
         العودة للقسم
       </Link>
 
       <div
         dir="rtl"
-        className="grid gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-start"
+        className="grid gap-4 sm:gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-start"
       >
         <form
           onSubmit={handleSubmit}
-          className="order-2 rounded-[2rem] border border-[#D6D1CA] bg-white p-4 shadow-[0_16px_45px_rgba(47,47,47,0.08)] sm:p-7 lg:order-1"
+          className="order-2 rounded-2xl border border-[#D6D1CA] bg-white p-4 shadow-[0_16px_45px_rgba(47,47,47,0.08)] sm:rounded-[2rem] sm:p-7 lg:order-1"
         >
-          <div className="mb-6 flex flex-wrap items-center gap-3">
+          <div className="mb-5 flex flex-wrap items-center gap-2 sm:mb-6 sm:gap-3">
             <span className="rounded-full border border-[#D6D1CA] bg-[#FAF8F5] px-3 py-1 text-xs font-semibold text-[#A88254]">
               {product.category}
             </span>
@@ -122,14 +122,14 @@ function ProductOrderForm({ product }) {
             </span>
           </div>
 
-          <h1 className="text-2xl font-bold leading-tight text-[#2F2F2F] sm:text-3xl md:text-4xl">
+          <h1 className="text-xl font-bold leading-tight text-[#2F2F2F] sm:text-3xl md:text-4xl">
             {product.name}
           </h1>
-          <p className="mt-4 text-sm leading-7 text-[#6B6B6B] sm:text-base sm:leading-8">
+          <p className="mt-3 text-sm leading-7 text-[#6B6B6B] sm:mt-4 sm:text-base sm:leading-8">
             {product.description}
           </p>
 
-          <div className="mt-8 space-y-6">
+          <div className="mt-6 space-y-5 sm:mt-8 sm:space-y-6">
             <ColorSelector
               colors={product.availableColors}
               selectedColor={selectedColor}
@@ -161,7 +161,7 @@ function ProductOrderForm({ product }) {
             ))}
 
             {product.whatsappNote && (
-              <p className="rounded-2xl border border-[#D6D1CA] bg-[#FAF8F5] p-4 text-sm leading-7 text-[#6B6B6B]">
+              <p className="rounded-xl border border-[#D6D1CA] bg-[#FAF8F5] p-4 text-sm leading-7 text-[#6B6B6B] sm:rounded-2xl">
                 {product.whatsappNote}
               </p>
             )}
@@ -170,14 +170,14 @@ function ProductOrderForm({ product }) {
           </div>
         </form>
 
-        <div className="order-1 space-y-4 lg:order-2">
+        <div className="order-1 space-y-3 sm:space-y-4 lg:order-2">
           <ImageZoom
             product={product}
             color={selectedColor}
             imageSrc={currentImage}
           />
 
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="grid gap-2 min-[420px]:grid-cols-3 sm:gap-3">
             {[
               ['اللون المختار', selectedColor],
               ['العرض', `${selectedWidth} سم`],
@@ -185,7 +185,7 @@ function ProductOrderForm({ product }) {
             ].map(([label, value]) => (
               <div
                 key={label}
-                className="rounded-2xl border border-[#D6D1CA] bg-white p-4 shadow-sm"
+                className="rounded-xl border border-[#D6D1CA] bg-white p-3 shadow-sm sm:rounded-2xl sm:p-4"
               >
                 <p className="text-xs text-[#6B6B6B]">{label}</p>
                 <p className="mt-1 font-bold text-[#2F2F2F]">{value}</p>

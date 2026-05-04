@@ -5,8 +5,8 @@ import SectionTitle from './SectionTitle'
 
 function CategoryList() {
   return (
-    <section id="categories" className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-      <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+    <section id="categories" className="mx-auto max-w-7xl px-3 py-10 sm:px-6 sm:py-16 lg:px-8">
+      <div className="mb-7 flex flex-col gap-4 sm:mb-10 lg:flex-row lg:items-end lg:justify-between">
         <SectionTitle
           eyebrow="التصنيفات"
           title="اختر القسم المناسب"
@@ -14,7 +14,7 @@ function CategoryList() {
         />
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-5">
         {categories.map((category) => {
           const categoryProducts = getProductsByCategory(category.name)
           const previewProduct = categoryProducts[0]
@@ -23,7 +23,7 @@ function CategoryList() {
             <Link
               key={category.slug}
               to={`/category/${category.slug}`}
-              className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[#D8D3CC] bg-white shadow-[0_12px_30px_rgba(47,47,47,0.06)] transition hover:-translate-y-1 hover:border-[#AEB4BC] hover:shadow-[0_18px_45px_rgba(47,47,47,0.1)]"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#D8D3CC] bg-white shadow-[0_12px_30px_rgba(47,47,47,0.06)] transition hover:-translate-y-1 hover:border-[#AEB4BC] hover:shadow-[0_18px_45px_rgba(47,47,47,0.1)] sm:rounded-3xl"
             >
               <div className="p-2.5 sm:p-3">
                 {previewProduct ? (
@@ -32,10 +32,10 @@ function CategoryList() {
                     color="فضي لامع"
                     imageSrc={previewProduct.defaultImage}
                     compact
-                    className="min-h-[170px] sm:min-h-[180px]"
+                    className="min-h-[150px] sm:min-h-[180px]"
                   />
                 ) : (
-                  <div className="grid min-h-[180px] place-items-center rounded-[1.75rem] border border-[#D6D1CA] bg-[#F3EEE7] text-sm font-semibold text-[#6B6B6B]">
+                  <div className="grid min-h-[150px] place-items-center rounded-2xl border border-[#D6D1CA] bg-[#F3EEE7] text-sm font-semibold text-[#6B6B6B] sm:min-h-[180px] sm:rounded-[1.75rem]">
                     لا توجد منتجات بعد
                   </div>
                 )}
@@ -52,7 +52,7 @@ function CategoryList() {
                   {category.description}
                 </p>
 
-                <span className="mt-5 inline-flex min-h-12 items-center justify-center rounded-2xl border border-[#D8D3CC] bg-[#FAF8F5] px-4 py-3 text-sm font-bold text-[#2F2F2F] transition group-hover:border-[#AEB4BC] group-hover:bg-[#F3EEE7]">
+                <span className="mt-5 inline-flex min-h-11 items-center justify-center rounded-xl border border-[#D8D3CC] bg-[#FAF8F5] px-4 py-3 text-sm font-bold text-[#2F2F2F] transition group-hover:border-[#AEB4BC] group-hover:bg-[#F3EEE7] sm:min-h-12 sm:rounded-2xl">
                   عرض منتجات القسم
                 </span>
               </div>

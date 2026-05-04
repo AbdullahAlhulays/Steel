@@ -66,16 +66,16 @@ function ProductMockup({
 }) {
   const style = metalStyles[color] || metalStyles['ذهبي لامع']
   const type = product?.mockupType || 'address'
-  const size = compact ? 'min-h-[180px] sm:min-h-[210px]' : 'min-h-[320px] sm:min-h-[420px]'
+  const size = compact ? 'min-h-[155px] sm:min-h-[210px]' : 'min-h-[270px] sm:min-h-[420px]'
 
   return (
     <div
-      className={`relative overflow-hidden rounded-[1.75rem] border border-[#D6D1CA] bg-[#F3EEE7] ${size} ${className}`}
+      className={`relative overflow-hidden rounded-2xl border border-[#D6D1CA] bg-[#F3EEE7] sm:rounded-[1.75rem] ${size} ${className}`}
     >
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.72),rgba(234,231,226,0.52))]" />
       <div className="absolute inset-x-10 bottom-6 h-px bg-gradient-to-l from-transparent via-[#AEB4BC]/45 to-transparent" />
 
-      <div className={`relative flex h-full ${size} items-center justify-center p-5`}>
+      <div className={`relative flex h-full ${size} items-center justify-center p-3.5 sm:p-5`}>
         {type === 'house' && <HousePlate style={style} compact={compact} />}
         {type === 'nameAddress' && (
           <NameAddressPlate style={style} compact={compact} />
@@ -98,7 +98,7 @@ function AddressPlate({ style, compact }) {
   return (
     <div
       className={`relative w-[86%] max-w-[560px] overflow-hidden rounded-2xl border ${style.edge} ${style.plate} shadow-[0_18px_45px_rgba(47,47,47,0.14)] ${
-        compact ? 'p-5' : 'p-8'
+        compact ? 'p-4 sm:p-5' : 'p-5 sm:p-8'
       }`}
     >
       <BrushedOverlay />
@@ -107,7 +107,7 @@ function AddressPlate({ style, compact }) {
       <div className={`relative space-y-4 ${style.text}`}>
         <p className="text-xs font-semibold opacity-75">العنوان الوطني</p>
         <div className="flex items-end justify-between gap-5">
-          <p className={`${compact ? 'text-4xl' : 'text-6xl'} font-bold`}>
+          <p className={`${compact ? 'text-3xl sm:text-4xl' : 'text-5xl sm:text-6xl'} font-bold`}>
             8162
           </p>
           <div className="flex-1 space-y-2">
@@ -125,7 +125,7 @@ function HousePlate({ style, compact }) {
   return (
     <div
       className={`relative w-[62%] max-w-[360px] overflow-hidden rounded-[2rem] border ${style.edge} ${style.plate} shadow-[0_18px_45px_rgba(47,47,47,0.14)] ${
-        compact ? 'p-6' : 'p-9'
+        compact ? 'p-5 sm:p-6' : 'p-6 sm:p-9'
       }`}
     >
       <BrushedOverlay />
@@ -133,7 +133,7 @@ function HousePlate({ style, compact }) {
       <Screw className="left-6 top-6" />
       <div className={`relative text-center ${style.text}`}>
         <p className="text-xs font-semibold opacity-75">رقم المنزل</p>
-        <p className={`${compact ? 'text-7xl' : 'text-9xl'} font-bold`}>25</p>
+        <p className={`${compact ? 'text-5xl sm:text-7xl' : 'text-7xl sm:text-9xl'} font-bold`}>25</p>
         <span className={`mx-auto block h-2 w-24 rounded-full ${style.accent}`} />
       </div>
     </div>
@@ -144,14 +144,14 @@ function NameAddressPlate({ style, compact }) {
   return (
     <div
       className={`relative w-[90%] max-w-[590px] overflow-hidden rounded-3xl border ${style.edge} ${style.plate} shadow-[0_18px_45px_rgba(47,47,47,0.14)] ${
-        compact ? 'p-5' : 'p-8'
+        compact ? 'p-4 sm:p-5' : 'p-5 sm:p-8'
       }`}
     >
       <BrushedOverlay />
       <Screw className="right-5 top-5" />
       <Screw className="left-5 top-5" />
       <div className={`relative space-y-4 text-center ${style.text}`}>
-        <p className={`${compact ? 'text-2xl' : 'text-4xl'} font-bold`}>
+        <p className={`${compact ? 'text-xl sm:text-2xl' : 'text-2xl sm:text-4xl'} font-bold`}>
           عبدالرحمن بن محمد
         </p>
         <span className={`mx-auto block h-2 w-2/3 rounded-full ${style.accent}`} />
@@ -165,7 +165,7 @@ function CompanyPlate({ style, compact }) {
   return (
     <div
       className={`relative w-[88%] max-w-[600px] overflow-hidden rounded-2xl border border-[#D6D1CA] bg-white shadow-[0_18px_45px_rgba(47,47,47,0.13)] ${
-        compact ? 'p-5' : 'p-8'
+        compact ? 'p-4 sm:p-5' : 'p-5 sm:p-8'
       }`}
     >
       <div className={`absolute inset-x-6 top-0 h-px ${style.rail}`} />
@@ -192,13 +192,13 @@ function ArtPlate({ style, compact }) {
   return (
     <div
       className={`relative w-[82%] max-w-[520px] overflow-hidden rounded-[2rem] border ${style.edge} ${style.plate} shadow-[0_18px_45px_rgba(47,47,47,0.14)] ${
-        compact ? 'p-6' : 'p-9'
+        compact ? 'p-5 sm:p-6' : 'p-6 sm:p-9'
       }`}
     >
       <BrushedOverlay />
       <div className={`relative mx-auto mb-5 h-1.5 w-2/3 rounded-full ${style.accent}`} />
       <div className={`relative text-center ${style.text}`}>
-        <p className={`${compact ? 'text-5xl' : 'text-7xl'} font-bold`}>فن</p>
+        <p className={`${compact ? 'text-4xl sm:text-5xl' : 'text-5xl sm:text-7xl'} font-bold`}>فن</p>
         <p className="mt-2 text-sm font-semibold opacity-75">تصميم معدني مخصص</p>
       </div>
       <div className={`relative mx-auto mt-5 h-1.5 w-1/2 rounded-full ${style.accent}`} />

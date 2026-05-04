@@ -6,7 +6,7 @@ function SectionTitle({ eyebrow, title, description, align = 'start' }) {
       {eyebrow && (
         <p className="mb-3 text-sm font-semibold text-[#A88254]">{eyebrow}</p>
       )}
-      <h2 className="text-2xl font-bold leading-tight text-[#2F2F2F] sm:text-3xl md:text-4xl">
+      <h2 className="text-[1.65rem] font-bold leading-tight text-[#2F2F2F] sm:text-3xl md:text-4xl">
         {title}
       </h2>
       {description && (

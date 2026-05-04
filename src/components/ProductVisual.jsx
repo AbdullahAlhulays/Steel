@@ -7,12 +7,12 @@ function ProductVisual({ product, color, imageSrc, compact = false, className = 
   if (usesRealImage) {
     return (
       <div
-        className={`overflow-hidden rounded-[1.75rem] border border-[#D6D1CA] bg-[#F3EEE7] ${className}`}
+        className={`overflow-hidden rounded-2xl border border-[#D6D1CA] bg-[#F3EEE7] sm:rounded-[1.75rem] ${className}`}
       >
         <img
           src={imageSrc}
           alt={product.name}
-          className="h-full min-h-[220px] w-full object-cover"
+          className="h-full min-h-[190px] w-full object-cover sm:min-h-[220px]"
         />
       </div>
     )
