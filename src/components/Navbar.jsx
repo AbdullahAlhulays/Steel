@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { categories } from '../data/products'
 
 function Navbar({
   searchTerm,
@@ -29,17 +28,6 @@ function Navbar({
     onClearSearch()
     setIsOpen(false)
   }
-
-  function handleCategoryLinkClick(category) {
-    onClearSearch()
-    setIsOpen(false)
-    navigate(`/?category=${category.slug}`)
-  }
-
-  const selectedCategorySlug =
-    location.pathname === '/'
-      ? new URLSearchParams(location.search).get('category')
-      : null
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#D8D3CC] bg-white/95 shadow-[0_8px_30px_rgba(47,47,47,0.04)] backdrop-blur-xl">
@@ -84,7 +72,7 @@ function Navbar({
             onClick={handleCatalogClick}
             className="hidden shrink-0 rounded-2xl bg-[#C7A46A] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#A88254] lg:inline-flex"
           >
-            التصنيفات
+            المنتجات
           </button>
 
           <button
@@ -116,27 +104,6 @@ function Navbar({
           </label>
         </div>
 
-        <div className="hidden border-t border-[#ECE9E4] py-3 lg:block">
-          <div className="flex items-center gap-2 overflow-x-auto">
-            {categories.map((category) => {
-              return (
-                <button
-                  key={category.slug}
-                  type="button"
-                  onClick={() => handleCategoryLinkClick(category)}
-                  className={`shrink-0 rounded-full border px-4 py-2 text-xs font-semibold transition ${
-                      selectedCategorySlug === category.slug
-                      ? 'border-[#C7A46A] bg-[#C7A46A] text-white'
-                      : 'border-[#D8D3CC] bg-white text-[#6B6B6B] hover:border-[#AEB4BC] hover:text-[#2F2F2F]'
-                    }`}
-                >
-                  {category.name}
-                </button>
-              )
-            })}
-          </div>
-        </div>
-
         {isOpen && (
           <div className="grid gap-2 border-t border-[#D8D3CC] py-3 lg:hidden">
             <button
@@ -144,24 +111,8 @@ function Navbar({
               onClick={handleCatalogClick}
               className="min-h-11 rounded-xl bg-[#C7A46A] px-4 py-3 text-center text-sm font-bold text-white sm:min-h-12 sm:rounded-2xl"
             >
-              التصنيفات
+              المنتجات
             </button>
-            {categories.map((category) => {
-              return (
-                <button
-                  key={category.slug}
-                  type="button"
-                  onClick={() => handleCategoryLinkClick(category)}
-                  className={`min-h-11 rounded-xl border px-4 py-3 text-right text-sm font-semibold transition sm:min-h-12 sm:rounded-2xl ${
-                      selectedCategorySlug === category.slug
-                      ? 'border-[#C7A46A] bg-[#C7A46A] text-white'
-                      : 'border-[#D8D3CC] bg-white text-[#6B6B6B]'
-                    }`}
-                >
-                  {category.name}
-                </button>
-              )
-            })}
           </div>
         )}
       </nav>
