@@ -126,44 +126,44 @@ function Navbar({
             onClick={() => setIsOpen(false)}
           />
 
-          <aside className="absolute left-0 top-0 flex h-dvh w-[min(82vw,22rem)] flex-col border-r border-[#D8D3CC] bg-white shadow-[18px_0_45px_rgba(47,47,47,0.18)]">
-            <div className="flex min-h-16 items-center justify-between border-b border-[#ECE9E4] px-4">
+          <aside className="absolute left-0 top-3 max-h-[calc(100dvh-1.5rem)] w-[min(68vw,17rem)] overflow-hidden rounded-r-2xl border border-l-0 border-[#D8D3CC] bg-white shadow-[18px_0_45px_rgba(47,47,47,0.18)]">
+            <div className="flex min-h-12 items-center justify-between border-b border-[#ECE9E4] px-3">
               <div>
                 <p className="text-sm font-bold text-[#2F2F2F]">القائمة</p>
-                <p className="mt-0.5 text-xs text-[#6B6B6B]">
+                <p className="mt-0.5 text-[11px] leading-4 text-[#6B6B6B]">
                   انتقل بسرعة للتصنيفات
                 </p>
               </div>
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="grid h-10 w-10 place-items-center rounded-xl border border-[#D8D3CC] bg-[#FAF8F5] text-xl leading-none text-[#2F2F2F]"
+                className="grid h-8 w-8 place-items-center rounded-lg border border-[#D8D3CC] bg-[#FAF8F5] text-lg leading-none text-[#2F2F2F]"
                 aria-label="إغلاق القائمة"
               >
                 ×
               </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-4 py-4">
+            <div className="overflow-y-auto px-3 py-3">
               <button
                 type="button"
                 onClick={handleCatalogClick}
-                className="mb-4 min-h-11 w-full rounded-xl bg-[#C7A46A] px-4 py-3 text-center text-sm font-bold text-white"
+                className="mb-3 min-h-10 w-full rounded-lg bg-[#C7A46A] px-3 py-2.5 text-center text-sm font-bold text-white"
               >
                 الصفحة الرئيسية
               </button>
 
-              <p className="mb-2 px-1 text-xs font-bold text-[#A88254]">
+              <p className="mb-2 px-1 text-[11px] font-bold text-[#A88254]">
                 التصنيفات
               </p>
 
-              <div className="grid gap-2">
+              <div className="grid gap-1.5">
                 {categories.map((category) => (
                   <button
                     key={category.slug}
                     type="button"
                     onClick={() => handleCategoryClick(category)}
-                    className={`min-h-11 rounded-xl border px-4 py-3 text-right text-sm font-semibold transition ${
+                    className={`min-h-10 rounded-lg border px-3 py-2.5 text-right text-xs font-semibold leading-5 transition ${
                       selectedCategorySlug === category.slug
                         ? 'border-[#C7A46A] bg-[#C7A46A] text-white'
                         : 'border-[#D8D3CC] bg-white text-[#6B6B6B]'

@@ -4,24 +4,24 @@ import ProductVisual from './ProductVisual'
 
 function ProductCard({ product }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-[#D6D1CA] bg-white shadow-[0_8px_22px_rgba(47,47,47,0.07)] transition duration-300 hover:-translate-y-1 hover:border-[#AEB4BC] hover:shadow-[0_20px_55px_rgba(47,47,47,0.12)] sm:rounded-3xl sm:shadow-[0_16px_40px_rgba(47,47,47,0.08)]">
+    <article className="group flex flex-col overflow-hidden rounded-xl border border-[#D6D1CA] bg-white shadow-[0_8px_22px_rgba(47,47,47,0.07)] transition duration-300 hover:-translate-y-1 hover:border-[#AEB4BC] hover:shadow-[0_20px_55px_rgba(47,47,47,0.12)] sm:rounded-3xl sm:shadow-[0_16px_40px_rgba(47,47,47,0.08)]">
       <Link to={`/product/${product.id}`} className="block overflow-hidden p-1.5 sm:p-3">
         <ProductVisual
           product={product}
           color={product.availableColors?.[0] || 'ذهبي لامع'}
           imageSrc={product.image}
           compact
-          className="min-h-[124px] transition duration-500 group-hover:scale-[1.015] sm:min-h-[250px]"
+          className="h-[128px] min-h-0 transition duration-500 group-hover:scale-[1.015] sm:h-[250px]"
         />
       </Link>
 
-      <div className="flex flex-1 flex-col space-y-2.5 p-2.5 pt-2 sm:space-y-5 sm:p-6 sm:pt-3">
-        <div className="flex min-h-[4.5rem] items-start justify-between gap-2 sm:min-h-[5.25rem] sm:gap-3">
+      <div className="flex flex-col space-y-2.5 p-2.5 pt-2 sm:space-y-5 sm:p-6 sm:pt-3">
+        <div className="flex items-start justify-between gap-2 sm:gap-3">
           <div className="min-w-0">
-            <p className="text-clamp-2 mb-1 min-h-8 text-[10px] font-semibold leading-4 text-[#A88254] sm:mb-2 sm:min-h-4 sm:text-xs">
+            <p className="text-clamp-1 mb-1 h-4 text-[10px] font-semibold leading-4 text-[#A88254] sm:mb-2 sm:text-xs">
               {product.category}
             </p>
-            <h3 className="text-clamp-2 min-h-10 text-sm font-bold leading-5 text-[#2F2F2F] sm:min-h-14 sm:text-xl sm:leading-7">
+            <h3 className="text-clamp-2 h-10 text-sm font-bold leading-5 text-[#2F2F2F] sm:h-14 sm:text-xl sm:leading-7">
               {product.name}
             </h3>
           </div>
@@ -30,15 +30,15 @@ function ProductCard({ product }) {
           </span>
         </div>
 
-        <p className="text-clamp-2 min-h-10 text-xs leading-5 text-[#6B6B6B] sm:min-h-14 sm:text-sm sm:leading-7">
+        <p className="text-clamp-2 h-10 text-xs leading-5 text-[#6B6B6B] sm:h-14 sm:text-sm sm:leading-7">
           {product.description}
         </p>
 
-        <div className="mt-auto">
+        <div>
           <p className="mb-1 text-[10px] font-semibold text-[#6B6B6B] sm:mb-2 sm:text-xs">
             التخصيصات المتاحة
           </p>
-          <div className="min-h-8 flex flex-wrap gap-1 rounded-xl border border-[#EAE7E2] bg-[#FAF8F5] p-1.5 sm:min-h-11 sm:gap-2 sm:rounded-2xl sm:p-2">
+          <div className="flex h-8 flex-wrap gap-1 overflow-hidden rounded-xl border border-[#EAE7E2] bg-[#FAF8F5] p-1.5 sm:h-11 sm:gap-2 sm:rounded-2xl sm:p-2">
             {product.availableColors.map((color) => (
               <span
                 key={color}
