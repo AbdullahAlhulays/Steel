@@ -36,7 +36,7 @@ function ProductCard({ product }) {
 
         <div>
           <p className="mb-1 text-[10px] font-semibold text-[#6B6B6B] sm:mb-2 sm:text-xs">
-            التشطيبات المتاحة
+            التخصيصات المتاحة
           </p>
           <div className="flex flex-wrap gap-1 rounded-xl border border-[#EAE7E2] bg-[#FAF8F5] p-1.5 sm:gap-2 sm:rounded-2xl sm:p-2">
             {product.availableColors.map((color) => (

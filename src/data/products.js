@@ -7,7 +7,7 @@ export const categories = [
   {
     slug: 'house-numbers',
     name: 'لوحات أرقام المنازل',
-    description: 'أرقام منزل واضحة وأنيقة بخيارات تشطيب تناسب الأبواب والمداخل.',
+    description: 'لوحات أرقام منزلية واضحة وأنيقة بخيارات متنوعة تناسب الأبواب والمداخل.',
   },
   {
     slug: 'name-with-address',
