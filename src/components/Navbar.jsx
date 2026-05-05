@@ -115,38 +115,68 @@ function Navbar({
             <span className="absolute right-4 top-1/2 h-2.5 w-2.5 -translate-y-1/2 rounded-full border border-[#A88254]" />
           </label>
         </div>
-
-        {isOpen && (
-          <div className="grid gap-2 border-t border-[#D8D3CC] py-3 lg:hidden">
-            <button
-              type="button"
-              onClick={handleCatalogClick}
-              className="min-h-11 rounded-xl bg-[#C7A46A] px-4 py-3 text-center text-sm font-bold text-white sm:min-h-12 sm:rounded-2xl"
-            >
-              الصفحة الرئيسية
-            </button>
-
-            <p className="px-1 pt-2 text-xs font-bold text-[#A88254]">
-              التصنيفات
-            </p>
-
-            {categories.map((category) => (
-              <button
-                key={category.slug}
-                type="button"
-                onClick={() => handleCategoryClick(category)}
-                className={`min-h-11 rounded-xl border px-4 py-3 text-right text-sm font-semibold transition sm:min-h-12 sm:rounded-2xl ${
-                  selectedCategorySlug === category.slug
-                    ? 'border-[#C7A46A] bg-[#C7A46A] text-white'
-                    : 'border-[#D8D3CC] bg-white text-[#6B6B6B]'
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </div>
-        )}
       </nav>
+
+      {isOpen && (
+        <div className="fixed inset-0 z-[60] lg:hidden">
+          <button
+            type="button"
+            className="absolute inset-0 bg-[#2F2F2F]/35"
+            aria-label="إغلاق القائمة"
+            onClick={() => setIsOpen(false)}
+          />
+
+          <aside className="absolute left-0 top-0 flex h-dvh w-[min(82vw,22rem)] flex-col border-r border-[#D8D3CC] bg-white shadow-[18px_0_45px_rgba(47,47,47,0.18)]">
+            <div className="flex min-h-16 items-center justify-between border-b border-[#ECE9E4] px-4">
+              <div>
+                <p className="text-sm font-bold text-[#2F2F2F]">القائمة</p>
+                <p className="mt-0.5 text-xs text-[#6B6B6B]">
+                  انتقل بسرعة للتصنيفات
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsOpen(false)}
+                className="grid h-10 w-10 place-items-center rounded-xl border border-[#D8D3CC] bg-[#FAF8F5] text-xl leading-none text-[#2F2F2F]"
+                aria-label="إغلاق القائمة"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="flex-1 overflow-y-auto px-4 py-4">
+              <button
+                type="button"
+                onClick={handleCatalogClick}
+                className="mb-4 min-h-11 w-full rounded-xl bg-[#C7A46A] px-4 py-3 text-center text-sm font-bold text-white"
+              >
+                الصفحة الرئيسية
+              </button>
+
+              <p className="mb-2 px-1 text-xs font-bold text-[#A88254]">
+                التصنيفات
+              </p>
+
+              <div className="grid gap-2">
+                {categories.map((category) => (
+                  <button
+                    key={category.slug}
+                    type="button"
+                    onClick={() => handleCategoryClick(category)}
+                    className={`min-h-11 rounded-xl border px-4 py-3 text-right text-sm font-semibold transition ${
+                      selectedCategorySlug === category.slug
+                        ? 'border-[#C7A46A] bg-[#C7A46A] text-white'
+                        : 'border-[#D8D3CC] bg-white text-[#6B6B6B]'
+                    }`}
+                  >
+                    {category.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </div>
+      )}
     </header>
   )
 }
